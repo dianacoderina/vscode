@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ByGradient · Gradient Gallery</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <h1>ByGradient</h1>
+        <p>
+          Curated gradients built for designers and builders. Filter by hue, material, popularity, or color count and drop your favorites straight into Figma.
+        </p>
+      </div>
+      <div class="hero__actions">
+        <button class="primary-btn">Submit a gradient</button>
+        <button class="secondary-btn">Random gradient</button>
+      </div>
+    </header>
+
+    <section class="filters" aria-label="Gradient filters">
+      <div class="filters__row filters__row--scroll">
+        <span class="filters__label">Hue</span>
+        <div class="filters__chips" id="hueChips"></div>
+      </div>
+      <div class="filters__row filters__row--scroll">
+        <span class="filters__label">Material</span>
+        <div class="filters__chips" id="materialChips"></div>
+      </div>
+      <div class="filters__row">
+        <div class="segmented" role="group" aria-label="Number of colors">
+          <span class="filters__label"># of colors</span>
+          <div class="segmented__options" id="colorCountOptions">
+            <button class="segmented__option active" data-count="all">Any</button>
+            <button class="segmented__option" data-count="2">Two</button>
+            <button class="segmented__option" data-count="3">Three</button>
+          </div>
+        </div>
+        <div class="filters__group" aria-label="Popularity filter">
+          <span class="filters__label">Popularity</span>
+          <div class="filters__chips filters__chips--compact" id="popularityChips"></div>
+        </div>
+        <div class="filters__controls">
+          <label class="select">
+            <span>Sort by</span>
+            <select id="sortSelect">
+              <option value="popularity">Popularity</option>
+              <option value="name">Name</option>
+              <option value="material">Material</option>
+            </select>
+          </label>
+          <label class="toggle">
+            <input type="checkbox" id="infiniteToggle" />
+            <span class="toggle__track"></span>
+            <span class="toggle__label">Infinite scroll</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <section class="gallery" id="gallery" aria-live="polite"></section>
+      <button id="loadMore" class="load-more">Load more</button>
+    </main>
+
+    <template id="gradientCardTemplate">
+      <article class="gradient-card">
+        <div class="gradient-card__preview"></div>
+        <div class="gradient-card__meta">
+          <div>
+            <h2 class="gradient-card__title"></h2>
+            <p class="gradient-card__tags"></p>
+          </div>
+          <div class="gradient-card__popularity" aria-label="Popularity score">
+            <span class="gradient-card__popularity-bar"></span>
+            <span class="gradient-card__popularity-value"></span>
+          </div>
+        </div>
+        <div class="gradient-card__actions" aria-hidden="true">
+          <button class="icon-btn" data-action="copy-css">Copy CSS</button>
+          <button class="icon-btn" data-action="view">View details</button>
+          <button class="icon-btn" data-action="figma">Add to Figma</button>
+        </div>
+      </article>
+    </template>
+
+    <script type="module" src="data.js"></script>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

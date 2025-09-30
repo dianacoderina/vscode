@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ByGradient · Gradient Detail</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="detail">
+    <header class="detail__header">
+      <a class="back-link" href="./">← Back to gallery</a>
+      <div class="detail__header-actions">
+        <button class="secondary-btn" id="randomGradient">Surprise me</button>
+        <button class="primary-btn" id="addToFigmaHeader">Add to Figma</button>
+      </div>
+    </header>
+
+    <main class="detail__layout">
+      <section class="detail__preview" id="gradientPreview">
+        <div class="detail__preview-info">
+          <h1 id="gradientName"></h1>
+          <p id="gradientDescription"></p>
+        </div>
+        <div class="detail__meta">
+          <div>
+            <h2>Hex codes</h2>
+            <ul id="hexList" class="detail__hex-list"></ul>
+          </div>
+          <div>
+            <h2>Tags</h2>
+            <div id="tagList" class="detail__tags"></div>
+          </div>
+          <div class="detail__quick-actions">
+            <button class="icon-btn" data-copy="css">Copy CSS</button>
+            <button class="icon-btn" data-copy="tailwind">Copy Tailwind</button>
+            <button class="icon-btn" data-copy="svg">Copy SVG</button>
+            <button class="icon-btn" id="detailAddToFigma">Add to Figma</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="detail__editor" aria-label="Gradient editor">
+        <div class="editor-section">
+          <h2>Color stops</h2>
+          <div id="colorStops" class="color-stops"></div>
+          <button class="secondary-btn" id="addStop">Add stop</button>
+        </div>
+        <div class="editor-section">
+          <label class="slider">
+            <span>Angle</span>
+            <input type="range" id="angleSlider" min="0" max="360" value="45" />
+            <span id="angleValue">45°</span>
+          </label>
+          <div class="toggle-group">
+            <span>Type</span>
+            <div class="toggle-group__buttons">
+              <button class="toggle-group__button active" data-type="linear">Linear</button>
+              <button class="toggle-group__button" data-type="radial">Radial</button>
+            </div>
+          </div>
+        </div>
+        <div class="editor-section">
+          <h2>Accessibility</h2>
+          <p>
+            Contrast vs. white text: <strong id="contrastValue"></strong>
+          </p>
+        </div>
+        <div class="editor-section">
+          <h2>Related gradients</h2>
+          <div id="relatedGradients" class="related-list"></div>
+        </div>
+      </aside>
+    </main>
+
+    <script type="module" src="data.js"></script>
+    <script type="module" src="detail.js"></script>
+  </body>
+</html>
